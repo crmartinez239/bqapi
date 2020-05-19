@@ -8,10 +8,12 @@ import (
 
 func main() {
 	r := gin.Default()
-	db := models.SetupOrderModel()
+	ordersDB := models.SetupOrderModel()
+	//usersDB := models.SetupUserModel()
 
 	r.Use(func(c *gin.Context) {
-		c.Set("db", db)
+		c.Set("orders", ordersDB)
+		//c.Set("users", usersDB)
 		c.Next()
 	})
 

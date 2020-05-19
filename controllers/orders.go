@@ -11,7 +11,7 @@ import (
 )
 
 func FindOrders(c *gin.Context) {
-	db := c.MustGet("db").(*gorm.DB)
+	db := c.MustGet("orders").(*gorm.DB)
 
 	var orders []models.OrderModel
 	db.Find(&orders)
@@ -20,7 +20,7 @@ func FindOrders(c *gin.Context) {
 }
 
 func CreateOrder(c *gin.Context) {
-	db := c.MustGet("db").(*gorm.DB)
+	db := c.MustGet("orders").(*gorm.DB)
 
 	var input models.CreateOrderModel
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -40,7 +40,7 @@ func CreateOrder(c *gin.Context) {
 }
 
 func FindOrder(c *gin.Context) {
-	db := c.MustGet("db").(*gorm.DB)
+	db := c.MustGet("orders").(*gorm.DB)
 
 	var order models.OrderModel
 
@@ -53,7 +53,7 @@ func FindOrder(c *gin.Context) {
 }
 
 func UpdateOrder(c *gin.Context) {
-	db := c.MustGet("db").(*gorm.DB)
+	db := c.MustGet("orders").(*gorm.DB)
 
 	var order models.OrderModel
 
@@ -74,7 +74,7 @@ func UpdateOrder(c *gin.Context) {
 }
 
 func DeleteOrder(c *gin.Context) {
-	db := c.MustGet("db").(*gorm.DB)
+	db := c.MustGet("orders").(*gorm.DB)
 
 	var order models.OrderModel
 	if err := db.Where("id = ?", c.Param("id")).First(&order).Error; err != nil {
