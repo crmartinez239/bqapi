@@ -8,7 +8,7 @@ import (
 
 func main() {
 	r := gin.Default()
-	db := models.SetupModels()
+	db := models.SetupOrderModel()
 
 	r.Use(func(c *gin.Context) {
 		c.Set("db", db)
