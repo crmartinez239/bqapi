@@ -29,6 +29,8 @@ func Login(c *gin.Context) {
 
 	// create auth token
 
-	c.JSON(http.StatusOK, local)
+	secret := c.MustGet("secret").(string)
+
+	c.JSON(http.StatusOK, gin.H{"secret": secret})
 
 }
