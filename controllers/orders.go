@@ -29,9 +29,10 @@ func CreateOrder(c *gin.Context) {
 	}
 
 	order := models.OrderModel{
-		Type: input.Type,
-		Name: input.Name,
-		When: time.Now().String()}
+		Type:  input.Type,
+		Name:  input.Name,
+		When:  time.Now().String(),
+		IsNew: "1"}
 
 	db.Create(&order)
 
