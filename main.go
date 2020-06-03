@@ -26,6 +26,7 @@ func main() {
 
 	r.GET("/orders", controllers.FindOrders)
 	r.POST("/orders", controllers.CreateOrder)
+	r.DELETE("/orders", controllers.DeleteAllOrders)
 
 	r.GET("/orders/:id", controllers.FindOrder)
 	r.PATCH("/orders/:id", controllers.UpdateOrder)

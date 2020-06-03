@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -88,6 +89,10 @@ func DeleteOrder(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"deleted": true})
 }
 
-// func DeleteAllOrders(c *gin.Context) {
-
-// }
+func DeleteAllOrders(c *gin.Context) {
+	if err := os.Remove("orders.db"); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"orders": "deleted"})
+}
