@@ -87,3 +87,7 @@ func DeleteOrder(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"deleted": true})
 }
+
+// func DeleteAllOrders(c *gin.Context) {
+
+// }

@@ -9,7 +9,7 @@ import (
 
 func SetupModels() *gorm.DB {
 	fmt.Println("trying to print")
-	db, err := gorm.Open("sqlite3", "test.db")
+	db, err := gorm.Open("sqlite3", "orders.db")
 
 	if err != nil {
 		panic("Failed to connect to database")
