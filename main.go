@@ -1,10 +1,9 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/crmartinez239/bqapi/controllers"
 	"github.com/crmartinez239/bqapi/models"
+	"github.com/gin-gonic/autotls"
 	"github.com/gin-gonic/gin"
 )
 
@@ -34,5 +33,6 @@ func main() {
 	r.PATCH("/orders/:id", controllers.UpdateOrder)
 	r.DELETE("orders/:id", controllers.DeleteOrder)
 
-	http.ListenAndServe(":9898", r)
+	//http.ListenAndServe(":9898", r)
+	autotls.Run(r, ":9898")
 }
