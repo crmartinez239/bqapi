@@ -1,8 +1,11 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/crmartinez239/bqapi/controllers"
 	"github.com/crmartinez239/bqapi/models"
+
 	// "github.com/gin-gonic/autotls"
 	"github.com/gin-gonic/gin"
 )
